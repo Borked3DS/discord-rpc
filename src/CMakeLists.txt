@@ -119,6 +119,8 @@ endif(UNIX)
 
 target_include_directories(discord-rpc PRIVATE ${RAPIDJSON}/include)
 
+target_include_directories(discord-rpc PUBLIC "${CMAKE_CURRENT_LIST_DIR}/../include")
+
 if (NOT ${ENABLE_IO_THREAD})
     target_compile_definitions(discord-rpc PUBLIC -DDISCORD_DISABLE_IO_THREAD)
 endif (NOT ${ENABLE_IO_THREAD})
