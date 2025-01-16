@@ -1,4 +1,15 @@
 cmake_minimum_required (VERSION 3.10)
+
+# Enable link time optimization if supported by compiler
+include(CheckIPOSupported)
+check_ipo_supported(RESULT result)
+if(result)
+    set(CMAKE_INTERPROCEDURAL_OPTIMIZATION TRUE)
+endif()
+
+# Set position independent code
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+
 project (DiscordRPC)
 
 include(GNUInstallDirs)
